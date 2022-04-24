@@ -1,38 +1,43 @@
 import inspect
 import sys
-from types import CodeType, ModuleType, WrapperDescriptorType, MappingProxyType, MethodDescriptorType, BuiltinFunctionType, GetSetDescriptorType
+import imp
+from types import CodeType, FunctionType, ModuleType, WrapperDescriptorType, MappingProxyType, MethodDescriptorType, BuiltinFunctionType, GetSetDescriptorType
 from src.base_serializator import BaseSerializator
-from src.dto import DTO_func, DTO_code_func, DTO_class, DTO_obj
+from src.dto import DTO_FUNC, DTO_CODE, DTO_CLASS, DTO_OBJ, DTO_MODULE
 
 
 class JsonSerializer(BaseSerializator):
     __str = ""
-    __obj = None
 
-    def __init__(self, obj: any) -> None:
-        self.__obj = obj
-        #self.__globals = _globals
-        # print(locals())
+
+    def __init__(self) -> None:
+        super().__init__()
+
 
     # converts Python object to JSON file
     def dump():
         pass
 
+
     # converts Python object to JSON string
-    def dumps(self) -> str:
-        self._serialize(self.__obj)
+    def dumps(self, obj : any) -> str:
+        self._serialize(obj)
         return self.__str
+
 
     # converts JSON file to Python object
     def load():
         pass
 
+
     # converts JSON string to Python object
     def loads():
         pass
 
+
     def _put(self, s: str):
         self.__str += s
+
 
     def _serialize_primitive(self, obj: any):
         _type = type(obj)
@@ -43,10 +48,17 @@ class JsonSerializer(BaseSerializator):
         elif _type == str:
             self._put(f'"{obj}"')
         elif _type == bytes:
-            self._put(f'"{obj.hex()}"')
+            self._put('{')
+            self._put('"TYPE":"bytes",')
+            self._put('"field":')
+            decode = obj.hex()
+            # decode = obj.decode("UTF-8")
+            self._put(f'"{decode}"')
+            self._put('}')
         elif obj is None:
             # self._put('{}')
             self._put('null')
+
 
     def _serialize_tuple_list(self, obj):
         self._put('[')
@@ -55,6 +67,7 @@ class JsonSerializer(BaseSerializator):
                 self._put(',')
             self._serialize(item)
         self._put(']')
+
 
     # need to work
     def _serialize_dict(self, dict: dict):
@@ -67,16 +80,30 @@ class JsonSerializer(BaseSerializator):
             self._serialize(v)
         self._put('}')
 
-    def _select_globals_func(self, globals : dict, code_names : tuple):
+
+    def _select_globals_func(self, globals : dict, func : FunctionType):
         actual_globals = {}
-        for name in code_names:
-            for k, v in globals.items():
-                if name == k: actual_globals[k] = v
+        for k, v in globals.items():
+            if k in func.__code__.co_names:
+                actual_globals.update({k: v})
+        actual_globals.update(self._select_subglobals_func(func, func.__code__))
         return actual_globals
         
+
+    def _select_subglobals_func(self, func : FunctionType, code : CodeType):
+        actual_globals = {}
+        for item in code.co_consts:
+            if type(item) == CodeType:
+                for k, v in func.__globals__.items():
+                    if k in item.co_names:
+                        actual_globals.update({k: v})
+                actual_globals.update(self._select_subglobals_func(func, item))
+        return actual_globals
+                
+
     def _construct_code_func(self, code) -> dict:
-        dto_code_func = DTO_code_func(
-            TYPE = "func code",
+        dto_code_func = DTO_CODE(
+            TYPE = "code",
             co_argcount = code.co_argcount,
             co_posonlyargcount = code.co_posonlyargcount,
             co_kwonlyargcount = code.co_kwonlyargcount,
@@ -96,20 +123,24 @@ class JsonSerializer(BaseSerializator):
         )
         return dto_code_func.dict()
 
+
     def _serialize_code_func(self, obj):
         self._serialize(self._construct_code_func(obj))
     
+
     def _serialize_func(self, func):
         dto_code_func = self._construct_code_func(func.__code__)
-        dto_func = DTO_func(
+        dto_func = DTO_FUNC(
             TYPE = "func",
             name = func.__name__,
-            globals = self._select_globals_func(func.__globals__, dto_code_func["co_names"]),
+            globals = self._select_globals_func(func.__globals__, func),
             code = dto_code_func,
             defaults = func.__defaults__,
-            closure = func.__closure__
+            closure = func.__closure__,
+            docs = func.__doc__
         )
         self._serialize(dto_func.dict())
+
 
     def _select_fields_class(self, _class):
         fields = dict()
@@ -141,26 +172,64 @@ class JsonSerializer(BaseSerializator):
 
 
     def _construct_class(self, _class) -> dict:
-        dto_class = DTO_class(
+        dto_class = DTO_CLASS(
             TYPE = "class",
             name = _class.__name__,
             fields = self._select_fields_class(_class)
         )
         return dto_class.dict()
 
+
     def _serialize_class(self, _class):
         self._serialize(self._construct_class(_class))
 
+
     def _serialize_obj(self, obj):
-        dto_obj = DTO_obj(
-            TYPE = "object",
+        dto_obj = DTO_OBJ(
+            TYPE = "obj",
             fields = obj.__dict__,
             obj_class = self._construct_class(obj.__class__)
         )
         self._serialize(dto_obj.dict())
-        
-    def _serialize_module(self, module):
-        pass
+
+
+    def _is_module_builtin(self, name : str):
+        python_libs_path = sys.path[2]
+        print(python_libs_path)
+        module_path = imp.find_module(name)[1]
+        print(module_path)
+        if name in sys.builtin_module_names:
+            return True
+        elif python_libs_path in module_path:
+            return True
+        elif 'site-packages' in module_path:
+            return True
+        return False
+
+
+    def _select_members_module(self, module : ModuleType) -> dict:
+        module_members = {}
+        for k, v in dict(inspect.getmembers(module)).items():
+            if not k.startswith("__"):
+                module_members.update({k:v})
+        return module_members
+
+
+    def _select_attrs_module(self, module : ModuleType) -> dict:
+        if self._is_module_builtin(module.__name__):
+            return None
+        else:
+            return self._select_members_module(module)
+
+
+    def _serialize_module(self, module : ModuleType):
+        # members = inspect.getmembers(module)
+        dto_module = DTO_MODULE(
+            TYPE = "module",
+            name = module.__name__,
+            attrs = self._select_attrs_module(module)
+        )
+        self._serialize(dto_module.dict())
         # self._parse_module(module)        
 
     # def _parse_module(self, module):
@@ -170,8 +239,10 @@ class JsonSerializer(BaseSerializator):
 
     #     wow_module = __import__(module.__name__, globals=None, locals=None, fromlist=True)
 
+
     def _serialize_default(self, obj):
         self._put(f'"{str(obj)}"')
+
 
     # distributing types to function
     def _serialize(self, obj: any):

@@ -1,1 +1,1 @@
-from .dto import DTO_func, DTO_code_func, DTO_class, DTO_obj
+from .dto import DTO_FUNC, DTO_CODE, DTO_CLASS, DTO_OBJ, DTO_MODULE

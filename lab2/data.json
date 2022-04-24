@@ -1,0 +1,100 @@
+{
+	"TYPE": "obj",
+	"obj_class": {
+		"TYPE": "class",
+		"name": "TestClass",
+		"fields": {
+			"__doc__": null,
+			"__init__": {
+				"TYPE": "func",
+				"name": "__init__",
+				"globals": {},
+				"defaults": [
+					2
+				],
+				"closure": null,
+				"docs": null,
+				"code": {
+					"TYPE": "code",
+					"co_argcount": 3,
+					"co_posonlyargcount": 0,
+					"co_kwonlyargcount": 0,
+					"co_nlocals": 3,
+					"co_stacksize": 4,
+					"co_flags": 67,
+					"co_code": {
+						"TYPE": "bytes",
+						"field": "7c0004006a007c017c021700370002005f0064005300"
+					},
+					"co_consts": [
+						null
+					],
+					"co_names": [
+						"c"
+					],
+					"co_varnames": [
+						"self",
+						"a",
+						"b"
+					],
+					"co_filename": "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py",
+					"co_name": "__init__",
+					"co_firstlineno": 85,
+					"co_lnotab": {
+						"TYPE": "bytes",
+						"field": "0001"
+					},
+					"co_freevars": [],
+					"co_cellvars": []
+				}
+			},
+			"__module__": "__main__",
+			"c": 10.2,
+			"class_value": 18,
+			"count": {
+				"TYPE": "func",
+				"name": "count",
+				"globals": {},
+				"defaults": null,
+				"closure": null,
+				"docs": null,
+				"code": {
+					"TYPE": "code",
+					"co_argcount": 1,
+					"co_posonlyargcount": 0,
+					"co_kwonlyargcount": 0,
+					"co_nlocals": 1,
+					"co_stacksize": 2,
+					"co_flags": 67,
+					"co_code": {
+						"TYPE": "bytes",
+						"field": "7c006a0064011b005300"
+					},
+					"co_consts": [
+						null,
+						18
+					],
+					"co_names": [
+						"c"
+					],
+					"co_varnames": [
+						"self"
+					],
+					"co_filename": "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py",
+					"co_name": "count",
+					"co_firstlineno": 88,
+					"co_lnotab": {
+						"TYPE": "bytes",
+						"field": "0001"
+					},
+					"co_freevars": [],
+					"co_cellvars": []
+				}
+			},
+			"some_bool_value": true
+		}
+	},
+	"fields": {
+		"c": 16.2
+	}
+}

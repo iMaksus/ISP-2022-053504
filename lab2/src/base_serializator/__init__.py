@@ -1,1 +1,1 @@
-from .create_serializator import BaseSerializator
+from .BaseSerializator import BaseSerializator
