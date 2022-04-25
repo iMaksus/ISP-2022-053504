@@ -1,0 +1,26 @@
+key = "value"
+string = true
+ss = 6
+"wow" = false
+# ok
+"" = "blank" 
+"dss" = 56
+# for binary data use Base64
+
+# array
+# arr = [
+# 	1,"dd",   3
+	
+# ]
+arr2 = [[1,2,3], ["d","s",'qq']]
+
+# dictionaries
+[dict]
+key1 = "value1"
+key2 = "value2"
+
+[dog."tater.man"]
+type = "pug"
+
+# In JSON land, that would give you the following structure:
+# { "dog": { "tater.man": { "type": "pug" } } }

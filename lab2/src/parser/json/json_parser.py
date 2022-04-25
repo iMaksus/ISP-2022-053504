@@ -1,15 +1,15 @@
 import inspect
 import imp
-# from pickle import TRUE
 import re
 from types import FunctionType, CodeType
-from .dto_parsing import DTO_REGEX, DTO_TYPES
+from .dto_parse_json import DTO_REGEX, DTO_TYPES
 from src.base_serializator import BaseSerializator
-from src.dto import DTO_FUNC, DTO_CODE, DTO_CLASS, DTO_OBJ
+
 
 # deserialize function using FunctionType :
 # https://stackoverflow.com/questions/1253528/is-there-an-easy-way-to-pickle-a-python-function-or-otherwise-serialize-its-cod
 # https://medium.com/@emlynoregan/serialising-all-the-functions-in-python-cd880a63b591
+
 
 class JsonParser(BaseSerializator):
     __str = ""
@@ -41,6 +41,24 @@ class JsonParser(BaseSerializator):
     def loads(self, _str : str):
         self.__divided = self._divide_str(_str)
         return self._parse_first()
+
+
+    def _get(self, type_to_skip : tuple):
+        if len(self.__divided):
+            if self.__divided[0][0] in type_to_skip:
+                return self.__divided.pop(0)
+        return ("", "")
+
+
+    def _check_first(self):
+        if len(self.__divided):
+            return self.__divided[0]
+
+
+    def _skip_key(self):
+        self._get(self.__DTO_TYPES.COMMA)
+        self._get(self.__DTO_TYPES.STR)
+        self._get(self.__DTO_TYPES.COLON)
 
 
     def _divide_str(self, _str : str):
@@ -113,12 +131,6 @@ class JsonParser(BaseSerializator):
                 break
         self._get(self.__DTO_TYPES.RBRACKET)
         return _list
-
-
-    def _skip_key(self):
-        self._get(self.__DTO_TYPES.COMMA)
-        self._get(self.__DTO_TYPES.STR)
-        self._get(self.__DTO_TYPES.COLON)
 
 
     def _parse_func(self):
@@ -212,36 +224,11 @@ class JsonParser(BaseSerializator):
         class_name = self._get(self.__DTO_TYPES.STR)[1]
         # class fields
         self._skip_key()
-        # self._get(self.__DTO_TYPES.LBRACE)
-        # self._skip_key()
-        # class_bases = (object,)
-        # if self._check_first()[0] != self.__DTO_TYPES.NULL:
-        #     class_bases = tuple(self._parse())
-        # self._get(self.__DTO_TYPES.RBRACE)
-        # self._get(self.__DTO_TYPES.COMMA)
-
-
-        # type(_class.__name__, _class.__bases__, {
-        #     "__init__": _class.__init__,
-            
-        # })
-
-
         class_dict = self._parse()
-
         class_bases = (object,)
         if "__bases__" in class_dict:
             class_bases = tuple(class_dict["__bases__"])
-
-        # class_dict = {}
-        # while self._check_first()[0] != self.__DTO_TYPES.RBRACE:
-        #     name = self._get(self.__DTO_TYPES.STR)[1]
-        #     self._get(self.__DTO_TYPES.COLON)
-        #     value = self._parse()
-        #     self._get(self.__DTO_TYPES.COMMA)
-        #     class_dict.update({name: value})
         _class = type(class_name, class_bases, class_dict)
-        # self._get(self.__DTO_TYPES.RBRACE) # fields rbrace
         self._get(self.__DTO_TYPES.RBRACE) # class rbrace
         return _class
 
@@ -295,13 +282,6 @@ class JsonParser(BaseSerializator):
         return _obj
 
 
-    def _get(self, type_to_skip : tuple):
-        if len(self.__divided):
-            if self.__divided[0][0] in type_to_skip:
-                return self.__divided.pop(0)
-        return ("", "")
-
-
     def _parse(self):
         if self._check_first()[0] == self.__DTO_TYPES.LBRACE:
             return self._parse_nonprimitive()
@@ -317,8 +297,3 @@ class JsonParser(BaseSerializator):
             print("OH shit here we go again (the end is not EOF)")
             exit()
         return obj
-
-
-    def _check_first(self):
-        if len(self.__divided):
-            return self.__divided[0]

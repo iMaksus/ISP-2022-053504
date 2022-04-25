@@ -1,5 +1,3 @@
-from src.serializer import JsonSerializer, TomlSerializer
-from src.parser import JsonParser
 import math
 
 st = "helllo"
@@ -114,27 +112,3 @@ class AnotherClass(metaclass=SimpleClass):
         print(self.a)
     def omg_heissostrong(self):
         self.simple_func(5)
-
-# json_ser = JsonSerializer()
-toml_ser = TomlSerializer()
-
-# _string_json = json_ser.dumps(simple_func)
-_string_toml = toml_ser.dumps(AnotherClass)
-
-# open('data.json', 'w').write(_string_json)
-open('data.toml', 'w').write(_string_toml)
-
-
-# _str_parse = open('data.json', 'r').read()
-# json_pars = JsonParser()
-# obj = json_pars.loads(_str_parse)
-
-# print(obj.count())
-
-
-def main():
-    pass
-
-
-if __name__ == "__main__":
-    main()

@@ -1,100 +1,121 @@
 {
-	"TYPE": "obj",
-	"obj_class": {
-		"TYPE": "class",
-		"name": "TestClass",
-		"fields": {
-			"__doc__": null,
-			"__init__": {
-				"TYPE": "func",
-				"name": "__init__",
-				"globals": {},
-				"defaults": [
-					2
-				],
-				"closure": null,
-				"docs": null,
-				"code": {
-					"TYPE": "code",
-					"co_argcount": 3,
-					"co_posonlyargcount": 0,
-					"co_kwonlyargcount": 0,
-					"co_nlocals": 3,
-					"co_stacksize": 4,
-					"co_flags": 67,
-					"co_code": {
-						"TYPE": "bytes",
-						"field": "7c0004006a007c017c021700370002005f0064005300"
-					},
-					"co_consts": [
-						null
-					],
-					"co_names": [
-						"c"
-					],
-					"co_varnames": [
-						"self",
-						"a",
-						"b"
-					],
-					"co_filename": "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py",
-					"co_name": "__init__",
-					"co_firstlineno": 85,
-					"co_lnotab": {
-						"TYPE": "bytes",
-						"field": "0001"
-					},
-					"co_freevars": [],
-					"co_cellvars": []
-				}
-			},
-			"__module__": "__main__",
-			"c": 10.2,
-			"class_value": 18,
-			"count": {
-				"TYPE": "func",
-				"name": "count",
-				"globals": {},
-				"defaults": null,
-				"closure": null,
-				"docs": null,
-				"code": {
-					"TYPE": "code",
-					"co_argcount": 1,
-					"co_posonlyargcount": 0,
-					"co_kwonlyargcount": 0,
-					"co_nlocals": 1,
-					"co_stacksize": 2,
-					"co_flags": 67,
-					"co_code": {
-						"TYPE": "bytes",
-						"field": "7c006a0064011b005300"
-					},
-					"co_consts": [
-						null,
-						18
-					],
-					"co_names": [
-						"c"
-					],
-					"co_varnames": [
-						"self"
-					],
-					"co_filename": "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py",
-					"co_name": "count",
-					"co_firstlineno": 88,
-					"co_lnotab": {
-						"TYPE": "bytes",
-						"field": "0001"
-					},
-					"co_freevars": [],
-					"co_cellvars": []
-				}
-			},
-			"some_bool_value": true
-		}
+	"TYPE": "func",
+	"name": "simple_func",
+	"globals": {
+		"math": {
+			"TYPE": "module",
+			"name": "math",
+			"attrs": null
+		},
+		"opi": 2
 	},
-	"fields": {
-		"c": 16.2
+	"defaults": null,
+	"closure": null,
+	"docs": "Aboba",
+	"code": {
+		"TYPE": "code",
+		"co_argcount": 1,
+		"co_posonlyargcount": 0,
+		"co_kwonlyargcount": 0,
+		"co_nlocals": 2,
+		"co_stacksize": 3,
+		"co_flags": 3,
+		"co_code": {
+			"TYPE": "bytes",
+			"field": "640189018700870166026402640384087d017c01640183015300"
+		},
+		"co_consts": [
+			"Aboba",
+			6,
+			{
+				"TYPE": "code",
+				"co_argcount": 1,
+				"co_posonlyargcount": 0,
+				"co_kwonlyargcount": 0,
+				"co_nlocals": 3,
+				"co_stacksize": 4,
+				"co_flags": 19,
+				"co_code": {
+					"TYPE": "bytes",
+					"field": "64017d016402640384007d027400a00188007c00140074021400880114007c0114007c0283001400a1015300"
+				},
+				"co_consts": [
+					null,
+					7,
+					{
+						"TYPE": "code",
+						"co_argcount": 0,
+						"co_posonlyargcount": 0,
+						"co_kwonlyargcount": 0,
+						"co_nlocals": 0,
+						"co_stacksize": 2,
+						"co_flags": 83,
+						"co_code": {
+							"TYPE": "bytes",
+							"field": "74006a01640113005300"
+						},
+						"co_consts": [
+							null,
+							2
+						],
+						"co_names": [
+							"math",
+							"pi"
+						],
+						"co_varnames": [],
+						"co_filename": "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py",
+						"co_name": "_hahahah",
+						"co_firstlineno": 25,
+						"co_lnotab": {
+							"TYPE": "bytes",
+							"field": "0001"
+						},
+						"co_freevars": [],
+						"co_cellvars": []
+					},
+					"simple_func.<locals>._h.<locals>._hahahah"
+				],
+				"co_names": [
+					"math",
+					"sin",
+					"opi"
+				],
+				"co_varnames": [
+					"arg2",
+					"i",
+					"_hahahah"
+				],
+				"co_filename": "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py",
+				"co_name": "_h",
+				"co_firstlineno": 23,
+				"co_lnotab": {
+					"TYPE": "bytes",
+					"field": "000104010802"
+				},
+				"co_freevars": [
+					"arg1",
+					"t"
+				],
+				"co_cellvars": []
+			},
+			"simple_func.<locals>._h"
+		],
+		"co_names": [],
+		"co_varnames": [
+			"arg1",
+			"_h"
+		],
+		"co_filename": "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py",
+		"co_name": "simple_func",
+		"co_firstlineno": 20,
+		"co_lnotab": {
+			"TYPE": "bytes",
+			"field": "000204010e05"
+		},
+		"co_freevars": [],
+		"co_cellvars": [
+			"arg1",
+			"t"
+		]
 	}
 }
