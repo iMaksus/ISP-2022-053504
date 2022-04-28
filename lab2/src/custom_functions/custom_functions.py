@@ -79,3 +79,15 @@ def _select_attrs_module(module : ModuleType) -> dict:
         return None
     else:
         return _select_members_module(module)
+
+
+def _turn_list_to_tuple(obj):
+    if not type(obj) in (tuple, list):
+        return obj
+    _list = []
+    for item in obj:
+        if type(item) is list:
+            _list.append(_turn_list_to_tuple(item))
+            continue
+        _list.append(item)
+    return tuple(_list)

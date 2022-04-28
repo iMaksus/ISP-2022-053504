@@ -1,14 +1,14 @@
 import sys
 import inspect
 import imp
-from types import CodeType, FunctionType, ModuleType, WrapperDescriptorType, MappingProxyType, MethodDescriptorType, BuiltinFunctionType, GetSetDescriptorType
+from types import CodeType, ModuleType
 
 from src.base_serializator import BaseSerializator
 from .dto_serialize_json import DTO_FUNC, DTO_CODE, DTO_CLASS, DTO_OBJ, DTO_MODULE
-from src.functions_serializer import _select_globals_func, _select_fields_class, _select_attrs_module
+from src.custom_functions import _select_globals_func, _select_fields_class, _select_attrs_module
 
 
-class JsonSerializer(BaseSerializator):
+class JsonSerializer():
     __str = ""
 
 
@@ -25,16 +25,6 @@ class JsonSerializer(BaseSerializator):
     def dumps(self, obj : any) -> str:
         self._serialize(obj)
         return self.__str
-
-
-    # converts JSON file to Python object
-    def load():
-        pass
-
-
-    # converts JSON string to Python object
-    def loads():
-        pass
 
 
     def _put(self, s: str):

@@ -6,7 +6,7 @@ from types import CodeType, FunctionType, ModuleType, WrapperDescriptorType, Map
 
 from src.base_serializator import BaseSerializator
 from .dto_serialize_toml import DTO_LIST, DTO_BYTES, DTO_FUNC, DTO_CODE, DTO_CLASS, DTO_OBJ, DTO_MODULE
-from src.functions_serializer import _select_globals_func, _select_fields_class, _select_attrs_module
+from src.custom_functions import _select_globals_func, _select_fields_class, _select_attrs_module
 
 class TomlSerializer(BaseSerializator):
     __str = ""
@@ -16,28 +16,30 @@ class TomlSerializer(BaseSerializator):
         super().__init__()
 
 
-    # converts Python object to JSON file
+    # converts Python object to TOML file
     def dump():
         pass
 
 
-    # converts Python object to JSON string
+    # converts Python object to TOML string
     def dumps(self, obj : any):
         self._serialize(obj)
         return self.__str
 
 
-    # converts JSON file to Python object
+    # converts TOML file to Python object
     def load():
         pass
 
 
-    # converts JSON string to Python object
+    # converts TOML string to Python object
     def loads():
         pass
 
 
     def _construct_primitive(self, obj):
+        if obj is None:
+            return "TYPE=NONE"
         return obj
 
 
@@ -55,45 +57,10 @@ class TomlSerializer(BaseSerializator):
     def _construct_list_tuple(self, _list) -> dict:
         if _list == [] or _list == None:
             return {}
-            # return {"fields":None}
-            # return None
-        other_fields = {}
-        i, k, j = 1, 1, 1
-        dto_list = DTO_LIST(
-            DTO_TYPE="list",
-            TYPE_INT=[],
-            TYPE_STR=[],
-            TYPE_BOOL=[],
-            TYPE_NONE=[])
-        for item in _list:
-            _type = type(item)
-            if _type in (int, float):
-                dto_list.TYPE_INT.append(item)
-            elif _type is str:
-                dto_list.TYPE_STR.append(item)
-            elif _type is bool:
-                dto_list.TYPE_BOOL.append(item)
-            elif item == None:
-                dto_list.TYPE_NONE.append(item)
-            elif _type is dict:
-                other_fields.update({f"TYPE_DICT_{i}": self._construct(item)})
-                i+=1
-            elif inspect.isfunction(item):
-                other_fields.update({item.__name__: self._construct(item)})
-            elif _type == CodeType:
-                other_fields.update({"TYPE_CODE": self._construct(item)})
-            elif inspect.isclass(item):
-                other_fields.update({item.__name__: self._construct(item)})
-            elif inspect.ismodule(item):
-                other_fields.update({item.__name__: self._construct(item)})
-            elif isinstance(item, object):
-                other_fields.update({f"TYPE_OBJECT_{j}": self._construct(item)})
-                j+=1
-            else:
-                other_fields.update({f"TYPE_OTHER_{k}": self._construct(item)})
-                k+=1
-        list_dict = dto_list.dict()
-        list_dict.update(other_fields)
+        list_dict = {}
+        list_dict.update({"DTO_TYPE":"list"})
+        for i, val in enumerate(_list):
+            list_dict.update({f"ITEM_{i}":self._construct(val)})
         return list_dict
 
 
@@ -116,7 +83,7 @@ class TomlSerializer(BaseSerializator):
             closure = self._construct_list_tuple(_func.__closure__),
             docs = _func.__doc__ 
         )
-        dict_func = dto_func.dict()
+        # dict_func = dto_func.dict()
         return dto_func.dict()
 
 
@@ -149,7 +116,7 @@ class TomlSerializer(BaseSerializator):
             name = _class.__name__,
             fields = self._construct(_select_fields_class(_class))
         )
-        class_dict = dto_class.dict()
+        # class_dict = dto_class.dict()
         return dto_class.dict()
 
 
@@ -160,18 +127,19 @@ class TomlSerializer(BaseSerializator):
             fields = self._construct(_obj.__dict__),
             obj_class = self._construct_class(_obj.__class__)
         )
-        gg = dto_obj.dict()
         return dto_obj.dict()
 
 
     def _construct_module(self, _module : ModuleType):
+        module_attrs = self._construct(_select_attrs_module(_module))
+        if module_attrs == "TYPE=NONE":
+            module_attrs = None
         dto_module = DTO_MODULE(
             DTO_TYPE = "module",
             name = _module.__name__,
-            attrs = self._construct(_select_attrs_module(_module))
+            attrs = module_attrs
         )
-        hh = dto_module.dict()
-        return dto_module.dict()
+        return self._construct_dict(dto_module.dict())
 
 
     def _construct(self, obj):
@@ -200,8 +168,18 @@ class TomlSerializer(BaseSerializator):
 
 
     def _serialize(self, obj):
-        if type(obj) in (int, float, bool, str, bytes) or obj is None:
-            self.__str += toml.dumps({type(obj):obj})
+        _type = type(obj)
+        if _type in (int,float,bool,str,bytes) or obj is None:
+            if _type in (int,float):
+                self.__str += toml.dumps({"TYPE_NUMBER":obj})
+            elif _type is bool:
+                self.__str += toml.dumps({"TYPE_BOOL":obj})
+            elif _type is str:
+                self.__str += toml.dumps({"TYPE_STR":obj})
+            elif _type is bytes:
+                self.__str += toml.dumps({"TYPE_BYTES":obj})
+            elif obj is None:
+                self.__str += toml.dumps({"TYPE=NONE"})
         else:
             obj_dict = self._construct(obj)
             self.__str += toml.dumps(obj_dict)

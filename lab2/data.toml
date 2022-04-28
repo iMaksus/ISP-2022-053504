@@ -1,65 +1,56 @@
+DTO_TYPE = "obj"
+
+[obj_class]
 DTO_TYPE = "class"
-name = "ccc"
+name = "TestClass"
 
 [fields]
+c = 14.2
+
+[obj_class.fields]
+__doc__ = "TYPE=NONE"
 __module__ = "__main__"
-s = 33
+c = 10.2
+class_value = 18
+some_bool_value = true
 
-[fields.omg_heissostrong]
+[obj_class.fields.__init__]
 DTO_TYPE = "func"
-name = "omg_heissostrong"
+name = "__init__"
 
-[fields.pri]
-DTO_TYPE = "func"
-name = "pri"
-
-[fields.simple_func]
+[obj_class.fields.simple_func]
 DTO_TYPE = "func"
 name = "simple_func"
 docs = "Aboba"
 
-[fields.omg_heissostrong.defaults]
+[obj_class.fields.__init__.globals]
 
-[fields.omg_heissostrong.closure]
+[obj_class.fields.__init__.defaults]
+DTO_TYPE = "list"
+ITEM_0 = 2
 
-[fields.omg_heissostrong.code]
+[obj_class.fields.__init__.closure]
+
+[obj_class.fields.__init__.code]
 DTO_TYPE = "code"
-co_argcount = 1
+co_argcount = 3
 co_posonlyargcount = 0
 co_kwonlyargcount = 0
-co_nlocals = 1
-co_stacksize = 3
+co_nlocals = 3
+co_stacksize = 4
 co_flags = 67
 co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
-co_name = "omg_heissostrong"
-co_firstlineno = 121
+co_name = "__init__"
+co_firstlineno = 70
 
-[fields.pri.globals]
-
-[fields.pri.defaults]
-
-[fields.pri.closure]
-
-[fields.pri.code]
-DTO_TYPE = "code"
-co_argcount = 1
-co_posonlyargcount = 0
-co_kwonlyargcount = 0
-co_nlocals = 1
-co_stacksize = 2
-co_flags = 67
-co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
-co_name = "pri"
-co_firstlineno = 119
-
-[fields.simple_func.globals]
+[obj_class.fields.simple_func.globals]
 opi = 2
 
-[fields.simple_func.defaults]
+[obj_class.fields.simple_func.defaults]
 
-[fields.simple_func.closure]
+[obj_class.fields.simple_func.closure]
 
-[fields.simple_func.code]
+[obj_class.fields.simple_func.code]
 DTO_TYPE = "code"
 co_argcount = 2
 co_posonlyargcount = 0
@@ -69,166 +60,74 @@ co_stacksize = 3
 co_flags = 3
 co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
 co_name = "simple_func"
-co_firstlineno = 106
+co_firstlineno = 73
 
-[fields.omg_heissostrong.globals.simple_func]
-DTO_TYPE = "func"
-name = "simple_func"
-docs = "Aboba"
-
-[fields.omg_heissostrong.code.co_code]
+[obj_class.fields.__init__.code.co_code]
 DTO_TYPE = "bytes"
-field = "7c00a0006401a101010064005300"
+field = "7c0004006a007c017c021700370002005f0064005300"
 
-[fields.omg_heissostrong.code.co_consts]
+[obj_class.fields.__init__.code.co_consts]
 DTO_TYPE = "list"
-TYPE_INT = [ 5,]
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = [ "None",]
+ITEM_0 = "TYPE=NONE"
 
-[fields.omg_heissostrong.code.co_names]
+[obj_class.fields.__init__.code.co_names]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "simple_func",]
-TYPE_BOOL = []
-TYPE_NONE = []
+ITEM_0 = "c"
 
-[fields.omg_heissostrong.code.co_varnames]
+[obj_class.fields.__init__.code.co_varnames]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "self",]
-TYPE_BOOL = []
-TYPE_NONE = []
+ITEM_0 = "self"
+ITEM_1 = "a"
+ITEM_2 = "b"
 
-[fields.omg_heissostrong.code.co_lnotab]
+[obj_class.fields.__init__.code.co_lnotab]
 DTO_TYPE = "bytes"
 field = "0001"
 
-[fields.omg_heissostrong.code.co_freevars]
+[obj_class.fields.__init__.code.co_freevars]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
 
-[fields.omg_heissostrong.code.co_cellvars]
+[obj_class.fields.__init__.code.co_cellvars]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
 
-[fields.pri.code.co_code]
-DTO_TYPE = "bytes"
-field = "74007c006a018301010064005300"
-
-[fields.pri.code.co_consts]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = [ "None",]
-
-[fields.pri.code.co_names]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "print", "s",]
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.pri.code.co_varnames]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "self",]
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.pri.code.co_lnotab]
-DTO_TYPE = "bytes"
-field = "0001"
-
-[fields.pri.code.co_freevars]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.pri.code.co_cellvars]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.simple_func.globals.math]
+[obj_class.fields.simple_func.globals.math]
 DTO_TYPE = "module"
 name = "math"
+attrs = "TYPE=NONE"
 
-[fields.simple_func.code.co_code]
+[obj_class.fields.simple_func.code.co_code]
 DTO_TYPE = "bytes"
-field = "640189018700870166026402640384087d027c02640183015300"
+field = "6401890287008701870266036402640384087d027c02640183015300"
 
-[fields.simple_func.code.co_consts]
+[obj_class.fields.simple_func.code.co_consts]
 DTO_TYPE = "list"
-TYPE_INT = [ 6,]
-TYPE_STR = [ "Aboba", "Meta228.simple_func.<locals>._h",]
-TYPE_BOOL = []
-TYPE_NONE = []
+ITEM_0 = "Aboba"
+ITEM_1 = 6
+ITEM_3 = "TestClass.simple_func.<locals>._abobus"
 
-[fields.simple_func.code.co_names]
+[obj_class.fields.simple_func.code.co_names]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
 
-[fields.simple_func.code.co_varnames]
+[obj_class.fields.simple_func.code.co_varnames]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "self", "arg1", "_h",]
-TYPE_BOOL = []
-TYPE_NONE = []
+ITEM_0 = "self"
+ITEM_1 = "arg1"
+ITEM_2 = "_abobus"
 
-[fields.simple_func.code.co_lnotab]
+[obj_class.fields.simple_func.code.co_lnotab]
 DTO_TYPE = "bytes"
-field = "000204010e05"
+field = "000204011005"
 
-[fields.simple_func.code.co_freevars]
+[obj_class.fields.simple_func.code.co_freevars]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
 
-[fields.simple_func.code.co_cellvars]
+[obj_class.fields.simple_func.code.co_cellvars]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "arg1", "t",]
-TYPE_BOOL = []
-TYPE_NONE = []
+ITEM_0 = "arg1"
+ITEM_1 = "self"
+ITEM_2 = "t"
 
-[fields.omg_heissostrong.globals.simple_func.globals]
-opi = 2
-
-[fields.omg_heissostrong.globals.simple_func.defaults]
-
-[fields.omg_heissostrong.globals.simple_func.closure]
-
-[fields.omg_heissostrong.globals.simple_func.code]
-DTO_TYPE = "code"
-co_argcount = 1
-co_posonlyargcount = 0
-co_kwonlyargcount = 0
-co_nlocals = 2
-co_stacksize = 3
-co_flags = 3
-co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
-co_name = "simple_func"
-co_firstlineno = 20
-
-[fields.simple_func.code.co_consts.TYPE_CODE]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2]
 DTO_TYPE = "code"
 co_argcount = 1
 co_posonlyargcount = 0
@@ -237,260 +136,81 @@ co_nlocals = 3
 co_stacksize = 4
 co_flags = 19
 co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
-co_name = "_h"
-co_firstlineno = 109
+co_name = "_abobus"
+co_firstlineno = 76
 
-[fields.omg_heissostrong.globals.simple_func.globals.math]
-DTO_TYPE = "module"
-name = "math"
-
-[fields.omg_heissostrong.globals.simple_func.code.co_code]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_code]
 DTO_TYPE = "bytes"
-field = "640189018700870166026402640384087d017c01640183015300"
+field = "64017d01870166016402640384087d027400a00188007c00140074021400880214007c0114007c0283001400a1015300"
 
-[fields.omg_heissostrong.globals.simple_func.code.co_consts]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts]
 DTO_TYPE = "list"
-TYPE_INT = [ 6,]
-TYPE_STR = [ "Aboba", "simple_func.<locals>._h",]
-TYPE_BOOL = []
-TYPE_NONE = []
+ITEM_0 = "TYPE=NONE"
+ITEM_1 = 7
+ITEM_3 = "TestClass.simple_func.<locals>._abobus.<locals>._cringe"
 
-[fields.omg_heissostrong.globals.simple_func.code.co_names]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_names]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
+ITEM_0 = "math"
+ITEM_1 = "sin"
+ITEM_2 = "opi"
 
-[fields.omg_heissostrong.globals.simple_func.code.co_varnames]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_varnames]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "arg1", "_h",]
-TYPE_BOOL = []
-TYPE_NONE = []
+ITEM_0 = "arg2"
+ITEM_1 = "i"
+ITEM_2 = "_cringe"
 
-[fields.omg_heissostrong.globals.simple_func.code.co_lnotab]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_lnotab]
 DTO_TYPE = "bytes"
-field = "000204010e05"
+field = "000104010c02"
 
-[fields.omg_heissostrong.globals.simple_func.code.co_freevars]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_freevars]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
+ITEM_0 = "arg1"
+ITEM_1 = "self"
+ITEM_2 = "t"
 
-[fields.omg_heissostrong.globals.simple_func.code.co_cellvars]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_cellvars]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "arg1", "t",]
-TYPE_BOOL = []
-TYPE_NONE = []
 
-[fields.simple_func.code.co_consts.TYPE_CODE.co_code]
-DTO_TYPE = "bytes"
-field = "64017d016402640384007d027400a00188007c00140074021400880114007c0114007c0283001400a1015300"
-
-[fields.simple_func.code.co_consts.TYPE_CODE.co_consts]
-DTO_TYPE = "list"
-TYPE_INT = [ 7,]
-TYPE_STR = [ "Meta228.simple_func.<locals>._h.<locals>._hahahah",]
-TYPE_BOOL = []
-TYPE_NONE = [ "None",]
-
-[fields.simple_func.code.co_consts.TYPE_CODE.co_names]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "math", "sin", "opi",]
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.simple_func.code.co_consts.TYPE_CODE.co_varnames]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "arg2", "i", "_hahahah",]
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.simple_func.code.co_consts.TYPE_CODE.co_lnotab]
-DTO_TYPE = "bytes"
-field = "000104010802"
-
-[fields.simple_func.code.co_consts.TYPE_CODE.co_freevars]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "arg1", "t",]
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.simple_func.code.co_consts.TYPE_CODE.co_cellvars]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2]
 DTO_TYPE = "code"
-co_argcount = 1
+co_argcount = 0
 co_posonlyargcount = 0
 co_kwonlyargcount = 0
-co_nlocals = 3
-co_stacksize = 4
+co_nlocals = 0
+co_stacksize = 2
 co_flags = 19
 co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
-co_name = "_h"
-co_firstlineno = 23
+co_name = "_cringe"
+co_firstlineno = 78
 
-[fields.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE]
-DTO_TYPE = "code"
-co_argcount = 0
-co_posonlyargcount = 0
-co_kwonlyargcount = 0
-co_nlocals = 0
-co_stacksize = 2
-co_flags = 83
-co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
-co_name = "_hahahah"
-co_firstlineno = 111
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_code]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_code]
 DTO_TYPE = "bytes"
-field = "64017d016402640384007d027400a00188007c00140074021400880114007c0114007c0283001400a1015300"
+field = "74006a016401130088006a0214005300"
 
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_consts]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_consts]
 DTO_TYPE = "list"
-TYPE_INT = [ 7,]
-TYPE_STR = [ "simple_func.<locals>._h.<locals>._hahahah",]
-TYPE_BOOL = []
-TYPE_NONE = [ "None",]
+ITEM_0 = "TYPE=NONE"
+ITEM_1 = 2
 
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_names]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_names]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "math", "sin", "opi",]
-TYPE_BOOL = []
-TYPE_NONE = []
+ITEM_0 = "math"
+ITEM_1 = "pi"
+ITEM_2 = "c"
 
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_varnames]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_varnames]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "arg2", "i", "_hahahah",]
-TYPE_BOOL = []
-TYPE_NONE = []
 
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_lnotab]
-DTO_TYPE = "bytes"
-field = "000104010802"
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_freevars]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "arg1", "t",]
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_cellvars]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_code]
-DTO_TYPE = "bytes"
-field = "74006a01640113005300"
-
-[fields.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_consts]
-DTO_TYPE = "list"
-TYPE_INT = [ 2,]
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = [ "None",]
-
-[fields.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_names]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "math", "pi",]
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_varnames]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_lnotab]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_lnotab]
 DTO_TYPE = "bytes"
 field = "0001"
 
-[fields.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_freevars]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_freevars]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
+ITEM_0 = "self"
 
-[fields.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_cellvars]
+[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_cellvars]
 DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE]
-DTO_TYPE = "code"
-co_argcount = 0
-co_posonlyargcount = 0
-co_kwonlyargcount = 0
-co_nlocals = 0
-co_stacksize = 2
-co_flags = 83
-co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
-co_name = "_hahahah"
-co_firstlineno = 25
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_code]
-DTO_TYPE = "bytes"
-field = "74006a01640113005300"
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_consts]
-DTO_TYPE = "list"
-TYPE_INT = [ 2,]
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = [ "None",]
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_names]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = [ "math", "pi",]
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_varnames]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_lnotab]
-DTO_TYPE = "bytes"
-field = "0001"
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_freevars]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []
-
-[fields.omg_heissostrong.globals.simple_func.code.co_consts.TYPE_CODE.co_consts.TYPE_CODE.co_cellvars]
-DTO_TYPE = "list"
-TYPE_INT = []
-TYPE_STR = []
-TYPE_BOOL = []
-TYPE_NONE = []

@@ -11,7 +11,7 @@ from src.base_serializator import BaseSerializator
 # https://medium.com/@emlynoregan/serialising-all-the-functions-in-python-cd880a63b591
 
 
-class JsonParser(BaseSerializator):
+class JsonParser():
     __str = ""
     __divided = []
     __DTO_REGEX = DTO_REGEX()
@@ -20,16 +20,6 @@ class JsonParser(BaseSerializator):
 
     def __init__(self):
         super().__init__()
-
-
-    # converts Python object to JSON file
-    def dump():
-        pass
-
-
-    # converts Python object to JSON string
-    def dumps():
-        pass
 
 
     # converts JSON file to Python object
@@ -62,7 +52,6 @@ class JsonParser(BaseSerializator):
 
 
     def _divide_str(self, _str : str):
-        # _str = r'{"GHell":"some val",[6,"hyyu"],"wooow":null,"woohoo":true}'
         divided = []
         while len(_str) > 0:
             for nameexp, regexp in self.__DTO_REGEX.dict().items():
@@ -208,9 +197,7 @@ class JsonParser(BaseSerializator):
         self._get(self.__DTO_TYPES.COMMA)
         self._skip_key()
         bstring = self._get(self.__DTO_TYPES.STR)
-        # _bytes = bytes(bstring[1],'UTF-8')
         _bytes = bytes.fromhex(bstring[1])
-        # _bytes = int(bstring[1], 16)
         self._get(self.__DTO_TYPES.RBRACE)
         return _bytes
 
