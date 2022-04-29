@@ -1,6 +1,12 @@
-from src.serializer import JsonSerializer, TomlSerializer, YamlSerializer
-from src.parser import JsonParser, TomlParser, YamlParser
+from my_serializer.serializer import JsonSerializer, TomlSerializer, YamlSerializer
+from my_serializer.parser import JsonParser, TomlParser, YamlParser
 import math
+
+from my_serializer.converter import Converter
+
+class fgg(type):
+    pass
+print(type(type))
 
 st = "helllo"
 
@@ -105,14 +111,17 @@ class AnotherClass(metaclass=SimpleClass):
         simple_func(5)
 
 
+def test_func(a : int) -> int:
+    return 228*a
+
 
 json_ser = JsonSerializer()
 toml_ser = TomlSerializer()
 yaml_ser = YamlSerializer()
 
-_string_json = json_ser.dumps(TestClass)
+_string_json = json_ser.dumps(test_func)
 # _string_toml = toml_ser.dumps(TestClass(2))
-_string_yaml = yaml_ser.dumps(TestClass)
+_string_yaml = yaml_ser.dumps(test_func)
 
 open('data.json', 'w').write(_string_json)
 # open('data.toml', 'w').write(_string_toml)
@@ -146,6 +155,12 @@ print(obj_yaml(5).simple_func(2))
 # obj_json2 = json_pars2.loads(_str_json2)
 # ob3 = obj_json2(2)
 # ob3.printing()
+
+
+
+converter = Converter()
+converter.get_args()
+converter.parse_args(test_func)
 
 
 def main():

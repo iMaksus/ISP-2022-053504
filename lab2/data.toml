@@ -1,216 +1,46 @@
-DTO_TYPE = "obj"
-
-[obj_class]
-DTO_TYPE = "class"
-name = "TestClass"
-
-[fields]
-c = 14.2
-
-[obj_class.fields]
-__doc__ = "TYPE=NONE"
-__module__ = "__main__"
-c = 10.2
-class_value = 18
-some_bool_value = true
-
-[obj_class.fields.__init__]
 DTO_TYPE = "func"
-name = "__init__"
+name = "test_func"
 
-[obj_class.fields.simple_func]
-DTO_TYPE = "func"
-name = "simple_func"
-docs = "Aboba"
+[globals]
 
-[obj_class.fields.__init__.globals]
+[defaults]
 
-[obj_class.fields.__init__.defaults]
-DTO_TYPE = "list"
-ITEM_0 = 2
+[closure]
 
-[obj_class.fields.__init__.closure]
-
-[obj_class.fields.__init__.code]
-DTO_TYPE = "code"
-co_argcount = 3
-co_posonlyargcount = 0
-co_kwonlyargcount = 0
-co_nlocals = 3
-co_stacksize = 4
-co_flags = 67
-co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
-co_name = "__init__"
-co_firstlineno = 70
-
-[obj_class.fields.simple_func.globals]
-opi = 2
-
-[obj_class.fields.simple_func.defaults]
-
-[obj_class.fields.simple_func.closure]
-
-[obj_class.fields.simple_func.code]
-DTO_TYPE = "code"
-co_argcount = 2
-co_posonlyargcount = 0
-co_kwonlyargcount = 0
-co_nlocals = 3
-co_stacksize = 3
-co_flags = 3
-co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
-co_name = "simple_func"
-co_firstlineno = 73
-
-[obj_class.fields.__init__.code.co_code]
-DTO_TYPE = "bytes"
-field = "7c0004006a007c017c021700370002005f0064005300"
-
-[obj_class.fields.__init__.code.co_consts]
-DTO_TYPE = "list"
-ITEM_0 = "TYPE=NONE"
-
-[obj_class.fields.__init__.code.co_names]
-DTO_TYPE = "list"
-ITEM_0 = "c"
-
-[obj_class.fields.__init__.code.co_varnames]
-DTO_TYPE = "list"
-ITEM_0 = "self"
-ITEM_1 = "a"
-ITEM_2 = "b"
-
-[obj_class.fields.__init__.code.co_lnotab]
-DTO_TYPE = "bytes"
-field = "0001"
-
-[obj_class.fields.__init__.code.co_freevars]
-DTO_TYPE = "list"
-
-[obj_class.fields.__init__.code.co_cellvars]
-DTO_TYPE = "list"
-
-[obj_class.fields.simple_func.globals.math]
-DTO_TYPE = "module"
-name = "math"
-attrs = "TYPE=NONE"
-
-[obj_class.fields.simple_func.code.co_code]
-DTO_TYPE = "bytes"
-field = "6401890287008701870266036402640384087d027c02640183015300"
-
-[obj_class.fields.simple_func.code.co_consts]
-DTO_TYPE = "list"
-ITEM_0 = "Aboba"
-ITEM_1 = 6
-ITEM_3 = "TestClass.simple_func.<locals>._abobus"
-
-[obj_class.fields.simple_func.code.co_names]
-DTO_TYPE = "list"
-
-[obj_class.fields.simple_func.code.co_varnames]
-DTO_TYPE = "list"
-ITEM_0 = "self"
-ITEM_1 = "arg1"
-ITEM_2 = "_abobus"
-
-[obj_class.fields.simple_func.code.co_lnotab]
-DTO_TYPE = "bytes"
-field = "000204011005"
-
-[obj_class.fields.simple_func.code.co_freevars]
-DTO_TYPE = "list"
-
-[obj_class.fields.simple_func.code.co_cellvars]
-DTO_TYPE = "list"
-ITEM_0 = "arg1"
-ITEM_1 = "self"
-ITEM_2 = "t"
-
-[obj_class.fields.simple_func.code.co_consts.ITEM_2]
+[code]
 DTO_TYPE = "code"
 co_argcount = 1
 co_posonlyargcount = 0
 co_kwonlyargcount = 0
-co_nlocals = 3
-co_stacksize = 4
-co_flags = 19
-co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
-co_name = "_abobus"
-co_firstlineno = 76
-
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_code]
-DTO_TYPE = "bytes"
-field = "64017d01870166016402640384087d027400a00188007c00140074021400880214007c0114007c0283001400a1015300"
-
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts]
-DTO_TYPE = "list"
-ITEM_0 = "TYPE=NONE"
-ITEM_1 = 7
-ITEM_3 = "TestClass.simple_func.<locals>._abobus.<locals>._cringe"
-
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_names]
-DTO_TYPE = "list"
-ITEM_0 = "math"
-ITEM_1 = "sin"
-ITEM_2 = "opi"
-
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_varnames]
-DTO_TYPE = "list"
-ITEM_0 = "arg2"
-ITEM_1 = "i"
-ITEM_2 = "_cringe"
-
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_lnotab]
-DTO_TYPE = "bytes"
-field = "000104010c02"
-
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_freevars]
-DTO_TYPE = "list"
-ITEM_0 = "arg1"
-ITEM_1 = "self"
-ITEM_2 = "t"
-
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_cellvars]
-DTO_TYPE = "list"
-
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2]
-DTO_TYPE = "code"
-co_argcount = 0
-co_posonlyargcount = 0
-co_kwonlyargcount = 0
-co_nlocals = 0
+co_nlocals = 1
 co_stacksize = 2
-co_flags = 19
+co_flags = 67
 co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
-co_name = "_cringe"
-co_firstlineno = 78
+co_name = "test_func"
+co_firstlineno = 111
 
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_code]
+[code.co_code]
 DTO_TYPE = "bytes"
-field = "74006a016401130088006a0214005300"
+field = "64017c0014005300"
 
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_consts]
+[code.co_consts]
 DTO_TYPE = "list"
 ITEM_0 = "TYPE=NONE"
-ITEM_1 = 2
+ITEM_1 = 228
 
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_names]
-DTO_TYPE = "list"
-ITEM_0 = "math"
-ITEM_1 = "pi"
-ITEM_2 = "c"
-
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_varnames]
+[code.co_names]
 DTO_TYPE = "list"
 
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_lnotab]
+[code.co_varnames]
+DTO_TYPE = "list"
+ITEM_0 = "a"
+
+[code.co_lnotab]
 DTO_TYPE = "bytes"
 field = "0001"
 
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_freevars]
+[code.co_freevars]
 DTO_TYPE = "list"
-ITEM_0 = "self"
 
-[obj_class.fields.simple_func.code.co_consts.ITEM_2.co_consts.ITEM_2.co_cellvars]
+[code.co_cellvars]
 DTO_TYPE = "list"
