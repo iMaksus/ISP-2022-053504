@@ -1,0 +1,46 @@
+DTO_TYPE = "func"
+name = "test_func"
+
+[globals]
+
+[defaults]
+
+[closure]
+
+[code]
+DTO_TYPE = "code"
+co_argcount = 1
+co_posonlyargcount = 0
+co_kwonlyargcount = 0
+co_nlocals = 1
+co_stacksize = 2
+co_flags = 67
+co_filename = "/home/i_maksus/4sem/Python/ISP-2022-053504/lab2/main.py"
+co_name = "test_func"
+co_firstlineno = 111
+
+[code.co_code]
+DTO_TYPE = "bytes"
+field = "64017c0014005300"
+
+[code.co_consts]
+DTO_TYPE = "list"
+ITEM_0 = "TYPE=NONE"
+ITEM_1 = 228
+
+[code.co_names]
+DTO_TYPE = "list"
+
+[code.co_varnames]
+DTO_TYPE = "list"
+ITEM_0 = "a"
+
+[code.co_lnotab]
+DTO_TYPE = "bytes"
+field = "0001"
+
+[code.co_freevars]
+DTO_TYPE = "list"
+
+[code.co_cellvars]
+DTO_TYPE = "list"
